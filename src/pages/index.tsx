@@ -512,23 +512,23 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-background min-h-screen flex flex-col">
-        <Header />
+      <div className="bg-background min-h-screen flex flex-col" style={{ backgroundColor: "#FBDA0C" }}>
         <main className="flex-1 p-4">
           <div className="container mx-auto">
+            <Header />
             <div className="flex flex-col lg:flex-row gap-6">
               {/* Game Info and Controls Column */}
               <div className="lg:w-1/3">
                 <Card className="mb-6">
                   <CardHeader>
                     <div className="flex justify-between items-center">
-                      <div>
+                      <div style={{ color: "#0057AD" }}>
                         <CardTitle>Friheten - Ikea Sofa Game</CardTitle>
                         <CardDescription>
                           Fill the room with sofas while keeping them all reachable.
                         </CardDescription>
                       </div>
-                      <Badge variant="outline" className="text-lg p-2">
+                      <Badge variant="outline" className="text-lg p-2" style={{ whiteSpace: "nowrap" }}>
                         Score: {score}
                       </Badge>
                     </div>

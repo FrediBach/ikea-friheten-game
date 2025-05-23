@@ -5,9 +5,10 @@ const Header = () => {
 
   return (
     <div className="w-full">
-      <div className="flex justify-between items-center py-4 px-4 sm:px-6 lg:px-8">
+      <div className="flex justify-start items-left pt-8 pb-8">
         <div 
           className="cursor-pointer text-2xl font-bold text-primary" 
+          style={{ color: "#0057AD" }}
           onClick={() => router.push("/")}
         >
           Friheten - Ikea Sofa Game
