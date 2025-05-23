@@ -42,50 +42,14 @@ export const SofaRectVertical: React.FC = () => (
   </svg>
 );
 
-export const SofaL0: React.FC = () => (
-  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+export const SofaL: React.FC = ({ style }) => (
+  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="w-full h-full" style={style}>
     <path d="M2,2 L38,2 L38,20 L20,20 L20,38 L2,38 Z" fill="#3B82F6" stroke="#1E40AF" strokeWidth="1" />
     <path d="M5,5 L35,5 L35,17 L17,17 L17,35 L5,35 Z" fill="#60A5FA" stroke="#1E40AF" strokeWidth="0.5" />
     <rect x="2" y="33" width="5" height="5" rx="1" fill="#1E40AF" />
     <rect x="33" y="5" width="5" height="5" rx="1" fill="#1E40AF" />
     {/* Connection indicators */}
     <path d="M20,2 L20,0 M38,10 L40,10" stroke="#1E40AF" strokeWidth="1" strokeDasharray="2,2" />
-    <circle cx="20" cy="20" r="3" fill="#93C5FD" stroke="#1E40AF" strokeWidth="0.5" />
-  </svg>
-);
-
-export const SofaL90: React.FC = () => (
-  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <path d="M2,2 L20,2 L20,20 L38,20 L38,38 L2,38 Z" fill="#3B82F6" stroke="#1E40AF" strokeWidth="1" />
-    <path d="M5,5 L17,5 L17,17 L35,17 L35,35 L5,35 Z" fill="#60A5FA" stroke="#1E40AF" strokeWidth="0.5" />
-    <rect x="5" y="33" width="5" height="5" rx="1" fill="#1E40AF" />
-    <rect x="33" y="33" width="5" height="5" rx="1" fill="#1E40AF" />
-    {/* Connection indicators */}
-    <path d="M10,2 L10,0 M38,30 L40,30" stroke="#1E40AF" strokeWidth="1" strokeDasharray="2,2" />
-    <circle cx="20" cy="20" r="3" fill="#93C5FD" stroke="#1E40AF" strokeWidth="0.5" />
-  </svg>
-);
-
-export const SofaL180: React.FC = () => (
-  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <path d="M2,2 L38,2 L38,38 L20,38 L20,20 L2,20 Z" fill="#3B82F6" stroke="#1E40AF" strokeWidth="1" />
-    <path d="M5,5 L35,5 L35,35 L17,35 L17,17 L5,17 Z" fill="#60A5FA" stroke="#1E40AF" strokeWidth="0.5" />
-    <rect x="5" y="5" width="5" height="5" rx="1" fill="#1E40AF" />
-    <rect x="33" y="33" width="5" height="5" rx="1" fill="#1E40AF" />
-    {/* Connection indicators */}
-    <path d="M20,38 L20,40 M2,10 L0,10" stroke="#1E40AF" strokeWidth="1" strokeDasharray="2,2" />
-    <circle cx="20" cy="20" r="3" fill="#93C5FD" stroke="#1E40AF" strokeWidth="0.5" />
-  </svg>
-);
-
-export const SofaL270: React.FC = () => (
-  <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <path d="M2,2 L38,2 L38,20 L20,20 L20,38 L2,38 Z" fill="#3B82F6" stroke="#1E40AF" strokeWidth="1" />
-    <path d="M5,5 L35,5 L35,17 L17,17 L17,35 L5,35 Z" fill="#60A5FA" stroke="#1E40AF" strokeWidth="0.5" />
-    <rect x="5" y="5" width="5" height="5" rx="1" fill="#1E40AF" />
-    <rect x="5" y="33" width="5" height="5" rx="1" fill="#1E40AF" />
-    {/* Connection indicators */}
-    <path d="M30,2 L30,0 M2,30 L0,30" stroke="#1E40AF" strokeWidth="1" strokeDasharray="2,2" />
     <circle cx="20" cy="20" r="3" fill="#93C5FD" stroke="#1E40AF" strokeWidth="0.5" />
   </svg>
 );
@@ -125,13 +89,13 @@ export const SofaRenderer: React.FC<{ type: string }> = ({ type }) => {
     case 'sofa-rect-v':
       return <SofaRectVertical />;
     case 'sofa-l-0':
-      return <SofaL0 />;
+      return <SofaL style={{ transform: 'rotate(0deg)' }} />;
     case 'sofa-l-90':
-      return <SofaL90 />;
+      return <SofaL style={{ transform: 'rotate(270deg)' }} />;
     case 'sofa-l-180':
-      return <SofaL180 />;
+      return <SofaL style={{ transform: 'rotate(180deg)' }} />;
     case 'sofa-l-270':
-      return <SofaL270 />;
+      return <SofaL style={{ transform: 'rotate(90deg)' }} />;
     case 'door':
       return <Door />;
     case 'wall':
@@ -163,10 +127,10 @@ export const SofaSelectionButton: React.FC<{
       break;
     case 'l-shaped':
       displayType = 'L-Shaped';
-      if (rotation === 0) sofaComponent = <SofaL0 />;
-      else if (rotation === 90) sofaComponent = <SofaL90 />;
-      else if (rotation === 180) sofaComponent = <SofaL180 />;
-      else sofaComponent = <SofaL270 />;
+      if (rotation === 0) sofaComponent = <SofaL style={{ transform: 'rotate(0deg)' }} />;
+      else if (rotation === 90) sofaComponent = <SofaL style={{ transform: 'rotate(270deg)' }} />;
+      else if (rotation === 180) sofaComponent = <SofaL style={{ transform: 'rotate(180deg)' }} />;
+      else sofaComponent = <SofaL style={{ transform: 'rotate(90deg)' }} />;
       break;
     default:
       sofaComponent = null;
