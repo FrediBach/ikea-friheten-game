@@ -443,8 +443,8 @@ export default function Home() {
         }
       }
     }
-    
-    if (fillableEmptyCells <= 3) { // Allow a few empty cells
+
+    if (fillableEmptyCells <= 3 || (inventory.single === 0 && inventory.rectangular === 0 && inventory['l-shaped'] === 0)) { // Allow a few empty cells
       setShowSuccessDialog(true);
       setShowCriticalPaths(false); // Hide critical paths when showing success dialog
     } else {
